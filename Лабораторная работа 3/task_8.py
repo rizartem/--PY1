@@ -1,14 +1,22 @@
-salary = 5000  # зарплата
-spend = 6000  # траты
-months = 10  # количество месяцев
-increase = 0.03  # рост цен
+money_capital = 10000
+salary = 5000
+spend = 6000
+increase = 0.05
 
-need_money = 0  # количество денег, чтобы прожить 10 месяцев
-count = 0
+month = 0  # количество месяцев, которое можно прожить
+
+
 # TODO Оформить решение
-for _ in range(10):
-    need_money = need_money + spend - salary
-    spend = spend + spend * increase
-    count = count + 1
-print(round(need_money))
-print(count)
+
+
+def lifetime(money_capital_, salary_, spend_, increase_):
+    month_ = 0
+    while (money_capital_) >= spend_:  # нужно проверять money_capital_ + salary_, если зп раньше расходов.
+        money_capital_ = money_capital_ + salary_ - spend_
+        spend_ = spend_ + spend_ * increase_
+        month_ = month_ + 1
+    return month_
+
+
+life = lifetime(money_capital, salary, spend, increase)
+print(life)
